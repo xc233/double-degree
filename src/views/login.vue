@@ -34,7 +34,7 @@ export default {
       account: this.account,
       pswd: this.pswd,
       })
-    .then(function (response) {
+    .then( (response) => {
       console.log(response.data.success);
       console.log(response.data.reason);
       if(response.data.success == true){
@@ -43,6 +43,7 @@ export default {
           position: 'middle',
           duration: 5000
         });
+        this.$router.replace('/user');
       }else{
         Toast({
           message: response.data.reason,
@@ -51,7 +52,7 @@ export default {
         });
       }
     })
-    .catch(function (error) {
+    .catch( (error) => {
       console.log(error);
       });
     },
