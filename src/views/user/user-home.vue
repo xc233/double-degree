@@ -3,7 +3,7 @@
     <div class="process">
       <h3>报名流程</h3>
       <ul>
-        <li class="pic1">
+        <li>
           <img src="../../assets/img/notebook.png" >
           <span>1.信息确认</span>
         </li>
@@ -39,10 +39,6 @@ export default {
       info:[
         '2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章',
         '2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章',
-        '2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章',
-        '2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章',
-        '2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章','2019年招生简章',
-
       ],
       index:''
     }
@@ -62,9 +58,8 @@ export default {
       width: 80px;
     }
     ul{
-      .pic1{
-        margin-left: 34px;
-      }
+      display: flex;
+      justify-content: center;
       .pic2{
         margin-left: 30px;
         margin-right: 30px;
@@ -112,7 +107,12 @@ export default {
     }
   }
   .info{
-    background-color: #bbb;
+    background-color: #eee;
+    p{
+      font-size: 22px;
+      margin-left: 12px;
+      padding-top: 10px;
+    }
     ul{
       li{
         padding-left: 20px;

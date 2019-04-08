@@ -41,14 +41,14 @@ export default {
          Toast({
           message: '登陆成功',
           position: 'middle',
-          duration: 5000
+          duration: 3000
         });
         this.$router.replace('/user');
       }else{
         Toast({
           message: response.data.reason,
           position: 'bottom',
-          duration: 5000
+          duration: 3000
         });
       }
     })
