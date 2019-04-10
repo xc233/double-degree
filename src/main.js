@@ -6,6 +6,7 @@ import router from './router';
 import store from './store';
 
 import '@/assets/css/reset.css';
+import '@/assets/js/rem.js';
 
 Vue.use(MintUI);
 Vue.config.productionTip = false;

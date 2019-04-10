@@ -1,5 +1,5 @@
 <template>
-  <div class="user-home">
+  <div class="admin-home">
     <home/>
   </div>
 </template>
@@ -7,7 +7,7 @@
 import home from '@/components/home.vue';
 
 export default {
-  name: 'user-home',
+  name: 'admin-home',
   components: {
     home,
   },

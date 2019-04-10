@@ -43,7 +43,11 @@ export default {
           position: 'middle',
           duration: 3000
         });
-        this.$router.replace('/user');
+        if(this.account == 'A19150000'){
+          this.$router.replace('/admin');
+        }else{
+          this.$router.replace('/user');
+        }
       }else{
         Toast({
           message: response.data.reason,
