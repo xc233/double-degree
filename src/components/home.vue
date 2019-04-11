@@ -102,25 +102,25 @@ export default {
       }
     }
   }
-  .verify {
-    background-color: #ccc;
-    img {
-      width: 80px;
-      margin: 20px;
-    }
-    .verify-msg {
-      display: inline-block;
-      padding-left: 20px;
-      .verify-title {
-        margin-top: 10px;
-        font-size: 30px;
-      }
-      .verify-content {
-        padding-top: 6px;
-        font-size: 20px;
-      }
-    }
-  }
+  // .verify {
+  //   background-color: #ccc;
+  //   img {
+  //     width: 80px;
+  //     margin: 20px;
+  //   }
+  //   .verify-msg {
+  //     display: inline-block;
+  //     padding-left: 20px;
+  //     .verify-title {
+  //       margin-top: 10px;
+  //       font-size: 30px;
+  //     }
+  //     .verify-content {
+  //       padding-top: 6px;
+  //       font-size: 20px;
+  //     }
+  //   }
+  // }
   .info {
     background-color: #eee;
     h2 {

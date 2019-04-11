@@ -12,7 +12,9 @@
     <mt-cell title="报名进度" is-link to="/user/process">
       <span style="color: green">点击查看</span>
     </mt-cell>
-    <mt-cell title="信息修改" is-link></mt-cell>
+    <mt-cell title="信息修改" is-link to="/user/applyMsg">
+      <span style="color: green">点此修改</span>
+    </mt-cell>
     <mt-cell title="注销登录" is-link>
       <span style="color: green">点此注销</span>
     </mt-cell>

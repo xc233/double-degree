@@ -8,10 +8,16 @@ import userhome from './views/user/user-home.vue';
 import userapply from './views/user/user-apply.vue';
 import userprofile from './views/user/user-profile.vue';
 import userProcess from './views/user/user-process.vue';
+import userApplyPush from './views/user/user-apply-push.vue';
+import userApplyMsg from './views/user/user-apply-msg.vue';
+import userModify from './views/user/user-modify.vue';
 import admin from './views/admin/admin.vue';
 import adminHome from './views/admin/admin-home.vue';
 import adminAudit from './views/admin/admin-audit.vue';
 import adminProfile from './views/admin/admin-profile.vue';
+
+
+
 
 Vue.use(Router);
 
@@ -45,6 +51,14 @@ export default new Router({
           name: 'userapply',
           component: userapply,
         },{
+          path: 'applyPush',
+          name: 'userApplyPush',
+          component: userApplyPush,
+        },{
+          path: 'applyMsg',
+          name: 'userApplyMsg',
+          component: userApplyMsg,
+        },{
           path: 'profile',
           name: 'userprofile',
           component: userprofile,
@@ -52,7 +66,11 @@ export default new Router({
           path: 'process',
           name: 'userProcess',
           component: userProcess,
-        },
+        },{
+          path: 'modify',
+          name: 'userModify',
+          component: userModify,
+        }
       ]
     },
     {

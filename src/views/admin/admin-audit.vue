@@ -1,20 +1,19 @@
 <template>
   <div class="audit">
     <h2>审核界面</h2>
-    <div class="operate" v-for="(list) in auditList" :key = list.id>
+    <div class="operate" v-for="(list,i) in auditList" :key = list.id>
       <ul>
         <li>姓名：{{list.name}} </li>
         <li>学号：{{list.account}} </li>
-        <li>性别：{{list.gender}}</li>
+        <li>性别：{{gender[list.gender]}}</li>
         <li>联系方式：{{list.phoneNumber}} </li>
         <li>现修专业：{{list.presentMajor}} </li>
         <li>申请修读双学位专业：{{list.applyMajor}} </li>
       </ul>
       <div class="ope-area">
-        <!-- <mt-field label="审核意见：" placeholder="请输入意见" type="textarea" rows="2" v-modal="msg"></mt-field> -->
-        <mt-field label="审核意见：" placeholder="请输入" v-model="msg"></mt-field>
-        <mt-button type="primary" @click.native="pass(list)">同意</mt-button>
-        <mt-button type="danger" @click.native = "refuse(list)">拒绝</mt-button>
+        <mt-field label="审核意见：" placeholder="请输入" v-model="msg[i]"></mt-field>
+        <mt-button type="primary" @click.native="pass(list,msg[i])">同意</mt-button>
+        <mt-button type="danger" @click.native = "refuse(list,msg[i])">拒绝</mt-button>
       </div>
     </div>
   </div>
@@ -27,7 +26,11 @@ export default {
     return{
       auditList:'',
       total:'',
-      msg: '',
+      msg: [],
+      gender : {
+        '1' : '男',
+        '2' : '女',
+      },
     }
   },
   created(){
@@ -44,26 +47,27 @@ export default {
     }).catch();
   },
   methods:{
-    pass(a){
-
-      console.log(a.account);
-      console.log(a._id);
-      a.status = '10';
+    pass(a,b){
+      a.status = 10;
       Axios.post('http://www.dyycyf.top/double-degree/audit/action',{
-        data:{
-          account:a.account,
+          account:'A19150000',
           applyEntityId:a._id,
           status:a.status,
-        }
+          reason:b,
       }).then((res)=>{
         console.log(res.data);
       })
     },
-    refuse(a){
-      console.log(a._id);
-      console.log(a.account);
-      a.status = '-10';
-      console.log(a.name);
+    refuse(a,b){
+      a.status = -10;
+      Axios.post('http://www.dyycyf.top/double-degree/audit/action',{
+          account:'A19150000',
+          applyEntityId:a._id,
+          status:a.status,
+          reason:b,
+      }).then((res)=>{
+        console.log(res.data);
+      })
     }
   }
 }
@@ -72,6 +76,7 @@ export default {
   .audit {
     margin-bottom: 56px;
     background: #f0f0f0;
+    overflow: hidden;
     h2 {
       padding-left: 24px;
       padding-top: 20px;
