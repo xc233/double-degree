@@ -4,15 +4,15 @@
       <h3>报名流程</h3>
       <ul>
         <li>
-          <img src="../assets/img/notebook.png">
+          <img src="../assets/img/jishiben1.png">
           <span>1.信息确认</span>
         </li>
         <li class="pic2">
-          <img src="../assets/img/phone.png">
+          <img src="../assets/img/iphone.png">
           <span>2.开始报名</span>
         </li>
         <li>
-          <img src="../assets/img/audit.png">
+          <img src="../assets/img/shenhe1.png">
           <span>3.等待审核</span>
         </li>
       </ul>

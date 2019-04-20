@@ -5,8 +5,8 @@
         <img src="../../assets/img/header-logo.png">
       </div>
       <div class="personal-text">
-        <p>你好，xxx同学</p>
-        <p>学号：A19150001</p>
+        <p>你好，{{userName}} 同学</p>
+        <p>学号：{{userId}}</p>
       </div>
     </div>
     <mt-cell title="报名进度" is-link to="/user/process">
@@ -22,7 +22,17 @@
 </template>
 <script>
 export default {
-  
+  data(){
+    return{
+      userId:'',
+      userName:''
+    }
+  },
+  created(){
+    this.userId = sessionStorage.getItem('userId');
+    this.userName = sessionStorage.getItem('userName');
+    console.log(this.userId);
+  }
 }
 </script>
 <style lang="scss" scoped>

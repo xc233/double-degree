@@ -3,47 +3,47 @@
     <h2>个人信息</h2>
     <div class="msg-opera">
       <p>姓名：</p>
-      <mt-field v-model="user.name" ></mt-field>
+      <mt-field v-model="user.name"></mt-field>
 
       <p>性别：</p>
       <!-- <mt-field v-model="user.gender"></mt-field> -->
-        <mt-radio
-          align="right"
-          v-model="user.gender"
-          :options="options">
-        </mt-radio>
+      <mt-radio align="right" v-model="user.gender" :options="options"></mt-radio>
       <p>联系电话：</p>
       <mt-field v-model="user.phoneNumber"></mt-field>
-    <mt-button type="primary" size="large" @click.native="msgConfirm" class="confirm-btn">确认</mt-button>
+      <mt-button type="primary" size="large" @click.native="msgConfirm" class="confirm-btn">确认</mt-button>
     </div>
   </div>
 </template>
 <script>
 import Axios from "axios";
-import { get } from "http";
-import { post } from "http";
+import { Toast } from "mint-ui";
 export default {
   data() {
     return {
-      user:'',
+      userId: "",
+      user: "",
       gender: {
-        '男': "1",
-        '女': "2"
+        男: "1",
+        女: "2"
       },
       // usergender: "",
-      options:[{
-        label:'男',
-        value:'1'
-      },{
-        label:'女',
-        value:'2'
-      }]
+      options: [
+        {
+          label: "男",
+          value: "1"
+        },
+        {
+          label: "女",
+          value: "2"
+        }
+      ]
     };
   },
   created() {
+    this.userId = sessionStorage.getItem("userId");
     Axios.get("http://www.dyycyf.top/double-degree/user/info", {
       params: {
-        account: "A19150001"
+        account: this.userId
       }
     }).then(res => {
       console.log(res.data);
@@ -53,16 +53,21 @@ export default {
       // console.log(this.usergender);
     });
   },
-  methods:{
-    msgConfirm(){
-      Axios.post('http://www.dyycyf.top/double-degree/user/info/edit',{
-        account:'A19150001',
-        name:this.user.name,
-        gender:this.user.gender,
-        phoneNumber:this.user.phoneNumber,
-      }).then((res)=>{
+  methods: {
+    msgConfirm() {
+      Axios.post("http://www.dyycyf.top/double-degree/user/info/edit", {
+        account: this.userId,
+        name: this.user.name,
+        gender: this.user.gender,
+        phoneNumber: this.user.phoneNumber
+      }).then(res => {
         console.log(res.data);
-      })
+        // Toast({
+        //   message: "报名成功",
+        //   position: "middle",
+        //   duration: 3000
+        // });
+      });
     }
   }
 };
@@ -94,13 +99,13 @@ export default {
       border-bottom: 1px solid #000;
     }
   }
-  .confirm-btn{
-      width: 70%;
-      margin: 0 auto;
-      margin-top: 40px;
-      margin-bottom: 40px;
-      border-radius: 25px;
-    }
+  .confirm-btn {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border-radius: 25px;
+  }
 }
 </style>
 

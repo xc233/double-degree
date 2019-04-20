@@ -3,7 +3,7 @@
     <h2>双学位 报名页</h2>
     <div class="apply-operate">
       <p>学号：</p>
-      <mt-field v-model="account" class="apply-account"></mt-field>
+      <mt-field v-model="account" readonly="true" class="apply-account"></mt-field>
       <p>现修专业：</p>
       <mt-field v-model="presentMajor"></mt-field>
       <p>申请修读双学位专业：</p>
@@ -37,6 +37,7 @@ import { post } from "http";
 export default {
   data() {
     return {
+      userId:'',
       account: "",
       presentMajor: "",
       applyMajor: "",
@@ -48,15 +49,18 @@ export default {
             "",
             "法学",
             "金融学",
-            "商务英语",
-            "应用心理学",
-            "统计学",
+            "英语",
+            "心理学",
+            "统计",
             "法语"
           ]
         }
       ],
       popupVisible: false
     };
+  },
+  created(){
+    this.account = sessionStorage.getItem('userId');
   },
   methods: {
     ShouPup() {

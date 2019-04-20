@@ -33,9 +33,10 @@ export default {
     }
   },
   created(){
+    let userId = sessionStorage.getItem('userId');
     Axios.get('http://www.dyycyf.top/double-degree/user/audit/list',{
       params:{
-        account:'A19150001',
+        account: userId,
         }
     }).then((res)=>{
       console.log(res.data);
@@ -47,7 +48,9 @@ export default {
 <style lang="scss" scoped>
 .process{
   background: #f0f0f0;
-  height: 100vh;
+  margin-bottom: 56px;
+  overflow: hidden;
+  // height: 100vh;
   h2 {
       padding-left: 24px;
       padding-top: 20px;
@@ -55,7 +58,7 @@ export default {
   .process-list {
     ul{
       background: #fff;
-      margin: 10px 10px;
+      margin: 20px 10px;
       border-radius: 10px;
       padding: 20px 20px 20px 20px;
     }

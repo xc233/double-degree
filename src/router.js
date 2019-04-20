@@ -3,6 +3,7 @@ import Router from 'vue-router';
 
 import welcome from './views/welcome.vue';
 import login from './views/login.vue';
+import register from './views/register.vue'
 import user from './views/user/user.vue';
 import userhome from './views/user/user-home.vue';
 import userapply from './views/user/user-apply.vue';
@@ -15,6 +16,7 @@ import admin from './views/admin/admin.vue';
 import adminHome from './views/admin/admin-home.vue';
 import adminAudit from './views/admin/admin-audit.vue';
 import adminProfile from './views/admin/admin-profile.vue';
+import adminStatistics from './views/admin/admin-statistics.vue';
 
 
 
@@ -34,6 +36,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: login,
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: register,
     },
     {
       path: '/user',
@@ -95,6 +102,11 @@ export default new Router({
           name: 'adminProfile',
           component: adminProfile,
         },
+        {
+          path: 'statistics',
+          name: 'adminStatistics',
+          component: adminStatistics,
+        }
       ]
     }
   ],
