@@ -16,7 +16,6 @@
 </template>
 <script>
 import Axios from 'axios';
-import { get } from 'http';
 export default {
   data() {
     return {
@@ -50,7 +49,7 @@ export default {
   background: #f0f0f0;
   margin-bottom: 56px;
   overflow: hidden;
-  // height: 100vh;
+  min-height: calc(100vh - 56px);
   h2 {
       padding-left: 24px;
       padding-top: 20px;
